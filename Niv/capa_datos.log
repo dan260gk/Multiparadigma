@@ -30,3 +30,13 @@ TypeError: The view function for 'ver_cliente' did not return a valid response. 
 10:25:23 AM : INFO [_internal.py]: 96 [33mPress CTRL+C to quit[0m
 10:25:30 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:25:30] "GET / HTTP/1.1" 200 -
 10:25:32 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:25:32] "GET /agregar_cliente HTTP/1.1" 200 -
+10:26:23 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:26:23] "POST /agregar_cliente HTTP/1.1" 200 -
+10:27:26 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:27:26] "[32mPOST /agregar_cliente HTTP/1.1[0m" 302 -
+10:27:26 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:27:26] "GET / HTTP/1.1" 200 -
+10:27:28 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:27:28] "GET /cliente/4 HTTP/1.1" 200 -
+10:27:30 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:27:30] "GET / HTTP/1.1" 200 -
+10:27:31 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:27:31] "GET /cliente/editar/4 HTTP/1.1" 200 -
+10:27:34 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:27:34] "[32mPOST /cliente/editar/4 HTTP/1.1[0m" 302 -
+10:27:34 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:27:34] "GET / HTTP/1.1" 200 -
+10:27:37 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:27:37] "[32mGET /cliente/eliminar/3 HTTP/1.1[0m" 302 -
+10:27:37 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:27:37] "GET / HTTP/1.1" 200 -

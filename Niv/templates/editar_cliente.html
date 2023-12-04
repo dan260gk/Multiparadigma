@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cliente - {{ cliente.nombre }}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+
+        form p {
+            margin-bottom: 15px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .back-link:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Editar Cliente - {{ cliente.nombre }}</h1>
+
+    <form method="POST" action="{{ url_for('editar_cliente', cliente_id=cliente.id) }}">
+        {{ form.hidden_tag() }}
+        <p>{{ form.nombre.label }}<br> {{ form.nombre(size=32) }}</p>
+        <p>{{ form.direccion.label }}<br> {{ form.direccion(size=32) }}</p>
+        <p>{{ form.telefono.label }}<br> {{ form.telefono(size=32) }}</p>
+        <p>{{ form.correo.label }}<br> {{ form.correo(size=32) }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    <p><a class="back-link" href="{{ url_for('clientes') }}">Volver a la lista de clientes</a></p>
+</body>
+</html>
+

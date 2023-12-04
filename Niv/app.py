@@ -284,7 +284,7 @@ def agregar_actualizar_proveedor():
     db.session.commit()
     return jsonify({"message": "Registro de Proveedor "+estado+" exitosamente"})
 
-#d
+#pare eliminar mandando el id en el header
 @app.route("/eliminar_pastel", methods=['DELETE'])
 def eliminar_pasteo():
     pastel_id = request.headers.get('ID')

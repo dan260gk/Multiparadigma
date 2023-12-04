@@ -16,6 +16,8 @@ from flask import jsonify
 #para agregar y actualizar los registros
 from flask import request
 
+#para el log
+from logger_base import log
 
 app = Flask(__name__)
 
@@ -119,49 +121,60 @@ def clientes():
 
 @app.route("/agregar_cliente", methods=['GET', 'POST'])
 def agregar_cliente():
-    form = ClienteForm()
-
-    if form.validate_on_submit():
-        nuevo_cliente = Cliente(
+    try:
+        form = ClienteForm()
+        if form.validate_on_submit():
+            nuevo_cliente = Cliente(
             nombre=form.nombre.data,
             direccion=form.direccion.data,
             telefono=form.telefono.data,
             correo=form.correo.data
-        )
-        db.session.add(nuevo_cliente)
-        db.session.commit()
-        return redirect(url_for('clientes'))  
+            )
+            db.session.add(nuevo_cliente)
+            db.session.commit()
+            return redirect(url_for('clientes'))  
 
-    return render_template('agregar_cliente.html', form=form)
+        return render_template('agregar_cliente.html', form=form)
+    except Exception as e:
+        log.error(e)
 
 @app.route("/cliente/<int:cliente_id>")
 def ver_cliente(cliente_id):
-    cliente = Cliente.query.get_or_404(cliente_id)
-    return render_template('ver_cliente.html', cliente=cliente)
+    try:
+        cliente = Cliente.query.get_or_404(cliente_id)
+        return render_template('ver_cliente.html', cliente=cliente)
+    except Exception as e:
+        log.error(e)
 
 @app.route("/cliente/editar/<int:cliente_id>", methods=['GET', 'POST'])
 def editar_cliente(cliente_id):
-    cliente = Cliente.query.get_or_404(cliente_id)
-    form = ClienteForm(obj=cliente)
+    try:
+        cliente = Cliente.query.get_or_404(cliente_id)
+        form = ClienteForm(obj=cliente)
 
-    if form.validate_on_submit():
-        cliente.nombre = form.nombre.data
-        cliente.direccion = form.direccion.data
-        cliente.telefono = form.telefono.data
-        cliente.correo = form.correo.data
+        if form.validate_on_submit():
+            cliente.nombre = form.nombre.data
+            cliente.direccion = form.direccion.data
+            cliente.telefono = form.telefono.data
+            cliente.correo = form.correo.data
 
-        db.session.commit()
-        return redirect(url_for('clientes'))
+            db.session.commit()
+            return redirect(url_for('clientes'))
 
-    return render_template('editar_cliente.html', form=form, cliente=cliente)
+        return render_template('editar_cliente.html', form=form, cliente=cliente)
+    except Exception as e:
+        log.error(e)
 
 @app.route("/cliente/eliminar/<int:cliente_id>")
 def eliminar_cliente(cliente_id):
-    cliente = Cliente.query.get_or_404(cliente_id)
+    try:
+        cliente = Cliente.query.get_or_404(cliente_id)
     
-    db.session.delete(cliente)
-    db.session.commit()
-    return redirect(url_for('clientes'))
+        db.session.delete(cliente)
+        db.session.commit()
+        return redirect(url_for('clientes'))
+    except Exception as e:
+        log.error(e)
 
 #recibir toda la informacion de 4 entidades
 @app.route("/informacion", methods=['GET'])

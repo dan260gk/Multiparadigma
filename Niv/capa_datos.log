@@ -1,0 +1,32 @@
+10:22:01 AM : INFO [_internal.py]: 96 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+10:22:01 AM : INFO [_internal.py]: 96 [33mPress CTRL+C to quit[0m
+10:22:16 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:22:16] "GET /agregar_cliente HTTP/1.1" 200 -
+10:22:21 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:22:21] "POST /agregar_cliente HTTP/1.1" 200 -
+10:23:25 AM : INFO [_internal.py]: 96 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+10:23:25 AM : INFO [_internal.py]: 96 [33mPress CTRL+C to quit[0m
+10:23:28 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:23:28] "GET /agregar_cliente HTTP/1.1" 200 -
+10:23:32 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:23:32] "GET / HTTP/1.1" 200 -
+10:23:34 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:23:34] "GET /cliente/3 HTTP/1.1" 200 -
+10:23:37 AM : ERROR [app.py]: 147 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+10:23:37 AM : ERROR [app.py]: 825 Exception on /cliente/6 [GET]
+Traceback (most recent call last):
+  File "c:\Users\jebus\Desktop\multiparadigma\Multi\Niv\.venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\jebus\Desktop\multiparadigma\Multi\Niv\.venv\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\jebus\Desktop\multiparadigma\Multi\Niv\.venv\Lib\site-packages\flask\app.py", line 889, in finalize_request
+    response = self.make_response(rv)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\jebus\Desktop\multiparadigma\Multi\Niv\.venv\Lib\site-packages\flask\app.py", line 1161, in make_response
+    raise TypeError(
+TypeError: The view function for 'ver_cliente' did not return a valid response. The function either returned None or ended without a return statement.
+10:23:37 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:23:37] "[35m[1mGET /cliente/6 HTTP/1.1[0m" 500 -
+10:25:23 AM : INFO [_internal.py]: 96 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+10:25:23 AM : INFO [_internal.py]: 96 [33mPress CTRL+C to quit[0m
+10:25:30 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:25:30] "GET / HTTP/1.1" 200 -
+10:25:32 AM : INFO [_internal.py]: 96 127.0.0.1 - - [04/Dec/2023 10:25:32] "GET /agregar_cliente HTTP/1.1" 200 -
